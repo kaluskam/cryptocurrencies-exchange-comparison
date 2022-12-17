@@ -1,10 +1,10 @@
-CREATE TABLE IF NOT EXISTS binance_old (symbol STRING, price DOUBLE)
+CREATE TABLE IF NOT EXISTS binance_orc (symbol STRING, price STRING)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\;'
 LINES TERMINATED BY '\n'
 STORED AS ORC;
 
-LOAD DATA INPATH path_to_orc_data_in_hdfs
-OVERWRITE INTO TABLE binance_old;
+LOAD DATA INPATH '/user/project/binance/2022-12-17/af17d57c-9dc1-4578-92aa-c7888e1a5898.orc'
+OVERWRITE INTO TABLE binance_orc;
 
-SELECT * FROM binance_old LIMIT 10;
+SELECT * FROM binance_orc LIMIT 10;
