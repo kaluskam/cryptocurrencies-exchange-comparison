@@ -1,7 +1,7 @@
 ## Project about Cryptocurrencies for Big Data course
 
 
-#### About files:
+#### About files and directories:
 
 * `CryptoExchangeProject.xml` - get data from API of cryptocurrencies exchanges and convert into `avro` and `parquet` files.
 * `CryptoExchangeHbaseCorrected.xml` - to above file, added HBase processing.
@@ -11,6 +11,7 @@
 * `CryptoExchangesApiRequesting.xml` - saving files as ORC from both Binance and KuCoin
 * `CryptoDataUploadToHive.xml` - added upload to hive table
 * `spark_commands_hive.txt` - sample commands how to work with hive tables in pyspark
+* `screenshots nifi` - contains screenshots of parts of nifi
 
 #### About hive tables:
   * `binance_old` - contains all records from binance 
