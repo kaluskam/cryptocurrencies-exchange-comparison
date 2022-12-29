@@ -1,0 +1,74 @@
+#working with hive tables in interactive spark 
+
+
+#open interactive pyspark
+pyspark --master local[2]
+
+#import all necessary libraries
+>>> from pyspark.sql import SparkSession
+>>> from pyspark.sql import Row #dunno if this is necessary
+
+#create app connected to hive
+>>> appName = "hive_pyspark"
+>>> master = "local"
+>>> spark = SparkSession.builder.master(master).appName(appName).enableHiveSupport().getOrCreate()
+
+#check if all working - show all databases 
+>>> df=spark.sql("show databases")
+>>> df.show()
+
++---------+
+|namespace|
++---------+
+|  default|
++---------+
+
+#show all tables
+
+>>> tables = spark.sql("show tables").show()
+
++--------+--------------------+-----------+
+|database|           tableName|isTemporary|
++--------+--------------------+-----------+
+| default|         binance_old|      false|
+| default|       binance_old_2|      false|
+| default|       binance_old_3|      false|
+| default|        crypto_rates|      false|
+| default|      crypto_rates_2|      false|
+| default|   crypto_rates_test|      false|
+| default|           employees|      false|
+| default|external_table_trams|      false|
+| default|external_table_tr...|      false|
+| default|          kucoin_old|      false|
+| default|            salaries|      false|
+| default|    test_static_part|      false|
+| default|                wifi|      false|
+| default|               wifi1|      false|
+| default|               wifi2|      false|
+| default|            wifi_par|      false|
++--------+--------------------+-----------+
+
+#check simple queries from hive table needed in this project
+
+>>> spark.sql("select * from kucoin_old limit 10").show()
++----------+-----------+-------------+
+|    symbol|      price|   timestamp_|
++----------+-----------+-------------+
+|  NKN-USDT|    0.08486|1672241667045|
+|  LOOM-BTC|0.000002427|1672241667045|
+|  GEM-USDT|     0.0175|1672241667045|
+| CUSD-USDT|     0.9964|1672241667045|
+|LTC3L-USDT|   0.001443|1672241667045|
+|  OAS-USDT|    0.05167|1672241667045|
+|   NEO-BTC|  0.0003686|1672241667045|
+|  KNC-USDT|      0.505|1672241667045|
+|  GRIN-BTC|0.000013115|1672241667045|
+|  LYM-USDT|   0.001177|1672241667045|
++----------+-----------+-------------+
+
+>>> spark.sql("select count(*) from kucoin_old").show()
++--------+
+|count(1)|
++--------+
+| 2976785|
++--------+
