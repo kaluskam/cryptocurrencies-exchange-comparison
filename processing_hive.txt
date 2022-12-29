@@ -1,9 +1,9 @@
 SET mapred.input.dir.recursive=true;
-CREATE TABLE IF NOT EXISTS binance_old (symbol STRING, price STRING, timestamp_ STRING)
+CREATE TABLE IF NOT EXISTS stock_name_old (symbol STRING, price STRING, timestamp_ STRING)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\;'
 LINES TERMINATED BY '\n'
 STORED AS ORC;
 
-LOAD DATA INPATH 'hdfs://localhost:8020/user/vagrant/Aga_projekt/project/binance/2022-12-28/test/*'
-INTO TABLE binance_old;
+LOAD DATA INPATH 'hdfs://localhost:8020/user/vagrant/Aga_projekt/project/stock_name/today_date/*'
+INTO TABLE stock_name_old;
