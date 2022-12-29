@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS stock_name_symbols (symbol STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\;'
+LINES TERMINATED BY '\n'
+STORED AS ORC;
+
+LOAD DATA INPATH 'hdfs://localhost:8020/user/vagrant/Aga_projekt/project/stock_name/available_symbols.orc'
+INTO TABLE stock_name_symbols;
