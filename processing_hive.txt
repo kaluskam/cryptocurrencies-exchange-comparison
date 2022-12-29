@@ -5,5 +5,5 @@ FIELDS TERMINATED BY '\;'
 LINES TERMINATED BY '\n'
 STORED AS ORC;
 
-LOAD DATA INPATH 'hdfs://localhost:8020/user/vagrant/Aga_projekt/project/stock_name/today_date/*'
+LOAD DATA INPATH 'hdfs://localhost:8020/user/vagrant/Aga_projekt/project/dataset/stock_name/*'
 INTO TABLE stock_name_old;
