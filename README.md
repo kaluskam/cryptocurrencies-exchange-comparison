@@ -10,3 +10,4 @@
 * `processing_hive.txt` - file to be saved as hql to run saving orc files to hive table
 * `CryptoExchangesApiRequesting.xml` - saving files as ORC from both Binance and KuCoin
 * `CryptoDataUploadToHive.xml` - added upload to hive table
+* `spark_commands_hive.txt` - sample commands how to work with hive tables in pyspark
