@@ -11,3 +11,9 @@
 * `CryptoExchangesApiRequesting.xml` - saving files as ORC from both Binance and KuCoin
 * `CryptoDataUploadToHive.xml` - added upload to hive table
 * `spark_commands_hive.txt` - sample commands how to work with hive tables in pyspark
+
+#### About hive tables:
+  * `binance_old` - contains all records from binance 
+  * `kucoin_old` - contains all records from kucoin
+  * `binance_symbols` - contains all symbols of currencies available on binance
+  * `kucoin_symbols` - contains all symbols of currencies available on kucoin
