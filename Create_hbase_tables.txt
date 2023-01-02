@@ -1,0 +1,2 @@
+create 'binance_currencies', 'price'
+create 'kucoin_currencies', 'price'
